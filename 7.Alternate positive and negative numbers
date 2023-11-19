@@ -1,0 +1,67 @@
+class Solution {
+    void rearrange(int arr[], int n) {
+        // code here
+        
+      int c1=0;
+      int c2=0;
+      for(int i=0;i<arr.length;i++){
+        if(arr[i]>=0){
+          c1++;
+        }else{
+          c2++;
+        }
+      }
+      
+      int temp1[]=new int[c1];
+      int temp2[]=new int[c2];
+      int res[]=new int[arr.length];
+
+      int t1=0;
+      int t2=0;
+
+      for(int i=0;i<arr.length;i++){
+          if(arr[i]>=0){
+          temp1[t1]=arr[i];
+          t1++;
+          }
+      }
+
+
+      
+      for(int i=0;i<arr.length;i++){
+          if(arr[i]<0){
+          temp2[t2]=arr[i];
+          t2++;
+          }
+      }
+
+      int x=0;
+      int y=0;
+    for(int i=0;i<arr.length;i++){
+          if(x<temp1.length && y<temp2.length){
+            if(i%2==0){
+              res[i]=temp1[x];
+              x++;
+          }else{
+              res[i]=temp2[y];
+              y++;
+          }
+          }
+          else{
+            if(x<temp1.length){
+              res[i]=temp1[x];
+              x++;
+            }else if(y<temp2.length){
+              res[i]=temp2[y];
+              y++;
+            }
+          }
+        }
+        
+         for(int i=0;i<arr.length;i++){
+          arr[i]=res[i];
+        }
+
+        
+    }
+}
