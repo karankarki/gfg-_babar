@@ -1,0 +1,16 @@
+ int minSubset(int[] Arr,int N) { 
+        long sum = 0;
+        for(int i=0; i<N; i++){
+            sum = sum + (long)Arr[i];
+        }
+        Arrays.sort(Arr);
+        long outsideSum = 0;
+        for(int i=N-1; i>=0; i--){
+            outsideSum = outsideSum + (long)Arr[i];
+            sum = sum - (long)Arr[i];
+            if(sum<outsideSum){
+                return N-i; 
+            }
+        }
+        return N;
+    }
