@@ -1,0 +1,47 @@
+
+class twoStacks
+{
+     ArrayList<Integer> l1 = new ArrayList<>(); 
+    ArrayList<Integer> l2 = new ArrayList<>();    
+    twoStacks()
+    {
+    
+    }
+    //Function to push an integer into the stack1.
+    void push1(int x)
+    {
+        l1.add(x);
+     
+    }
+    //Function to push an integer into the stack2.
+    void push2(int x)
+    {
+        l2.add(x);
+       
+    }
+    //Function to remove an element from top of the stack1.
+    int pop1()
+    {
+        
+        if(l1.size()==0){
+            return -1;
+        }
+        
+        
+        int a = l1.get(l1.size()-1);
+        l1.remove(l1.size()-1);
+        return a;   
+    }
+    //Function to remove an element from top of the stack2.
+    int pop2()
+    {
+        
+         if(l2.size()==0){
+            return -1;
+        }
+        int a = l2.get(l2.size()-1);
+        l2.remove(l2.size()-1);
+        return a;
+    }
+}
+
