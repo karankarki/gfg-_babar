@@ -1,0 +1,30 @@
+class Solution 
+{
+    public int countOccurence(int[] arr, int n, int k) 
+    {
+        Arrays.sort(arr);
+        int count=1;
+        int num=0;
+        for(int i=1;i<n;i++)
+        {
+            
+            if(arr[i-1]==arr[i])
+            {
+                count++;
+            }
+            else
+            {
+                if(count > n/k)
+                {
+                    num++;
+                }
+                count=1;
+            }
+        }
+        if(count>n/k)
+        {
+            num++;
+        }
+        return num;
+    }
+}
