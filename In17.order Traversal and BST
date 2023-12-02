@@ -1,0 +1,17 @@
+
+class Solution {
+    static int isRepresentingBST(int arr[], int N) {
+        if (arr.length == 0 || arr.length == 1) return 1;
+        return isBST(arr, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, arr.length - 1) ? 1 : 0;
+    }
+
+    static boolean isBST(int arr[], int min, int max, int start, int end) {
+        if (start > end) return true; 
+
+        int mid = start + (end - start) / 2;
+
+        if (arr[mid] <= min || arr[mid] >= max) return false;
+
+        return isBST(arr, min, arr[mid], start, mid - 1) && isBST(arr, arr[mid], max, mid + 1, end);
+    }
+}
