@@ -1,0 +1,24 @@
+class Solution {
+    int countDigitOccurrences(int number, int digit) {
+        String numberStr = String.valueOf(number);
+        char digitChar = (char) (digit + '0');
+        String digitStr = String.valueOf(digitChar);
+
+        int count = 0;
+        for (int i = 0; i < numberStr.length(); i++) {
+            if (numberStr.charAt(i) == digitChar) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    int countX(int L, int R, int X) {
+        int count = 0;
+        for (int i = L + 1; i < R; i++) {
+            count += countDigitOccurrences(i, X);
+        }
+        return count;
+    }
+}
